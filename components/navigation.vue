@@ -5,7 +5,7 @@
         <logo class="logo" />
       </nuxt-link>
 
-      <ul class="links">
+      <ul class="links dark">
         <li class="link">
           <nuxt-link to="/features">Features</nuxt-link>
         </li>
@@ -49,7 +49,6 @@
     top: 0;
     font-size: 1.4rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.88);
     transition: all 300ms ease;
 
     @include breakpoint(md) {
@@ -63,8 +62,10 @@
   }
 
   .links {
-    display: flex;
+    display: none;
+
     @include breakpoint(md) {
+      display: flex;
       flex-direction: row;
       align-items: center;
     }
@@ -132,18 +133,5 @@
 </style>
 
 <script>
-  export default {
-    // methods: {
-    //   introEnter() {
-    //     gsap.from("nav", {
-    //       opacity: 0,
-    //       duration: 0.5,
-    //       ease: Power4.easeOut,
-    //     })
-    //   },
-    // },
-    // mounted() {
-    //   this.introEnter()
-    // },
-  }
+  export default {}
 </script>

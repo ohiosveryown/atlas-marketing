@@ -22,6 +22,9 @@
 }
 
 .fs-xxl {
+  font-size: 5.2rem;
+  line-height: 1;
+
   @include breakpoint(md) {
     font-size: 7.2rem;
     line-height: 1;
@@ -29,6 +32,9 @@
 }
 
 .fs-xl {
+  font-size: 2.8rem;
+  line-height: 1.2;
+
   @include breakpoint(md) {
     font-size: 4.2rem;
     line-height: 1;
@@ -36,6 +42,9 @@
 }
 
 .fs-lg {
+  font-size: 2.8rem;
+  line-height: 1.1;
+
   @include breakpoint(md) {
     font-size: 3.2rem;
     line-height: 1.1;
