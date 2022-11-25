@@ -145,7 +145,7 @@
       0px 12px 10px rgba(0, 0, 0, 0.4);
     transform: translateY(-3rem) scaleY(0.75);
     transform-origin: top;
-    transition: opacity 50ms ease;
+    transition: opacity 200ms ease, transform 10ms ease 201ms;
     opacity: 0;
 
     @include breakpoint(md) {

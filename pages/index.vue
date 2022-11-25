@@ -43,6 +43,17 @@
           </li>
         </ul>
       </section>
+
+      <section class="app-preview width">
+        <HeaderMedium
+          class="ente rrr"
+          heading="Customer Centric Productivity"
+          subheading="Build relationships with your customers by seeing them in their full context.
+          See how it works below 👇"
+        />
+
+        <app-preview />
+      </section>
     </main>
   </div>
 </template>
@@ -54,14 +65,37 @@
     margin-bottom: 4.8rem;
 
     @include breakpoint(md) {
-      margin-bottom: 17.6rem;
+      margin-bottom: 12rem;
     }
   }
 
   section.features {
+    @include breakpoint(md) {
+      margin-bottom: 9.6rem;
+    }
+
     header {
+      margin-bottom: 2.4rem;
+      text-align: center;
       @include breakpoint(md) {
+        text-align: left;
+        margin-bottom: 4.8rem;
         width: grid-width(5);
+      }
+    }
+  }
+
+  section.app-preview {
+    @include breakpoint(md) {
+      margin-bottom: 9.6rem;
+    }
+
+    header {
+      margin-bottom: 2.4rem;
+      text-align: center;
+      @include breakpoint(md) {
+        margin: 0 auto 4.8rem;
+        width: grid-width(6.4);
       }
     }
   }
@@ -94,10 +128,31 @@
           ease: Power4.easeOut,
         })
       },
+
+      handleScroll() {
+        const observerOptions = {
+          root: null,
+          threshold: 0,
+          rootMargin: "0px 0px -240px 0px",
+        }
+        const observerCallback = (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active")
+            }
+          })
+        }
+        const observer = new IntersectionObserver(
+          observerCallback,
+          observerOptions
+        )
+        const targets = document.querySelectorAll(".scroll-target")
+        targets.forEach((e) => observer.observe(e))
+      },
     },
 
     mounted() {
-      this.enter()
+      this.enter(), this.handleScroll()
     },
   }
 </script>
