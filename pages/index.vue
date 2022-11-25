@@ -22,19 +22,28 @@
           heading="A fully integrated suite of support products"
           subheading="All of the best-in-class support tools, built specifically for support teams."
         />
+
+        <ul class="feature-grid">
+          <li
+            class="card card-lg"
+            v-for="feature of features"
+            :key="feature.slug"
+          >
+            <nuxt-link :to="`/features/${feature.slug}`">
+              <i>{{ feature.icon }}</i>
+
+              <h3 class="inter">
+                {{ feature.title }}
+              </h3>
+
+              <p class="dark">{{ feature.description }}</p>
+
+              <img :src="`${feature.hero}`" />
+            </nuxt-link>
+          </li>
+        </ul>
       </section>
     </main>
-
-    <!-- List -->
-    <section class="debug width">
-      <ul>
-        <li v-for="feature of features" :key="feature.slug">
-          <nuxt-link :to="`/features/${feature.slug}`">
-            {{ feature.title }}
-          </nuxt-link>
-        </li>
-      </ul>
-    </section>
   </div>
 </template>
 
@@ -62,6 +71,7 @@
   export default {
     async asyncData({ $content, params }) {
       const features = await $content()
+        .limit(7)
         .where({
           tags: "testing",
         })

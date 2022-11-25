@@ -1,6 +1,8 @@
 ---
-title: Second
+title: Chatbots
 tags: "testing"
+icon: "🤖"
+hero: "https://res.cloudinary.com/da32ufmnf/image/upload/v1669216462/atlas-refresh/index/dnyq7minvldqfohodtzg.png"
 description: "Empower your NuxtJS application with @nuxt/content module: write in a content/ directory and fetch your Markdown, JSON, YAML and CSV files through a MongoDB like API, acting as a Git-based Headless CMS."
 ---
 

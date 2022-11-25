@@ -5,15 +5,23 @@
         <logo class="logo" />
       </nuxt-link>
 
-      <div
-        ref="menuSm"
-        @click="toggleMenu(), (navOpen = !navOpen)"
-        class="hamburger"
-      >
-        Click
+      <div @click="toggleMenu(), (navOpen = !navOpen)" class="burger">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="17"
+          fill="none"
+        >
+          <path
+            fill="#fff"
+            fill-rule="evenodd"
+            d="M0 1.736a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1Zm0 7a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1Zm1 6a1 1 0 0 0 0 2h18a1 1 0 1 0 0-2H1Z"
+            clip-rule="evenodd"
+          />
+        </svg>
       </div>
 
-      <menu class="small dark">
+      <menu ref="menuSm" class="small dark">
         <ul>
           <li>
             <nuxt-link to="/features">Features</nuxt-link>
@@ -31,13 +39,18 @@
             <nuxt-link to="/about">About</nuxt-link>
           </li>
 
-          <li>
-            <a href="https://app.getatlas.io/auth/login?next=/">Log In</a>
-          </li>
-
-          <li>
+          <li class="footer">
             <a href="https://app.getatlas.io/auth/signup"
               ><button class="button-primary">Sign Up</button></a
+            >
+          </li>
+
+          <li class="signup tac">
+            <span class="op-6">Existing user?</span>
+            <a
+              class="light-blue"
+              href="https://app.getatlas.io/auth/login?next=/"
+              >Log In</a
             >
           </li>
         </ul>
@@ -112,27 +125,39 @@
     transform-origin: left;
   }
 
-  .hamburger {
+  .burger {
     @include breakpoint(md) {
       display: none;
     }
   }
 
   menu.small {
-    border: 0.5px solid rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+    border: 0.5px solid rgba(255, 255, 255, 0);
     display: flex;
     position: absolute;
     top: 44px;
     width: 100%;
-    padding: 1.2rem 1.8rem;
+    padding: 2rem 1.8rem 1.2rem;
     border-radius: 12px;
     background: linear-gradient(180deg, #04020c 0%, #18043d 86%);
     box-shadow: 0px 100px 80px rgba(0, 0, 0, 0.8),
       0px 12px 10px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3rem) scaleY(0.75);
+    transform-origin: top;
+    transition: opacity 50ms ease;
+    opacity: 0;
 
     @include breakpoint(md) {
       display: none;
     }
+  }
+
+  .menu-open {
+    pointer-events: inherit;
+    transform: translateY(0) scaleY(1) !important;
+    opacity: 1 !important;
+    transition: opacity 300ms ease, transform 200ms ease !important;
   }
 
   menu.small ul {
@@ -142,14 +167,24 @@
   }
 
   menu.small li {
-    padding: 1.2rem 0;
+    padding: 1.6rem 0;
     width: 100%;
-    font-size: 1.8rem;
+    font-size: 2rem;
     border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
 
+    &:nth-last-child(2),
     &:last-of-type {
       border-bottom: none;
     }
+  }
+
+  menu.small .footer {
+    margin-top: 1.2rem;
+  }
+
+  menu.small .signup {
+    padding: 1rem;
+    font-size: 1.6rem;
   }
 
   menu.large {
@@ -191,24 +226,23 @@
   }
 
   button {
+    width: 100%;
+    padding: 1.2rem 1.6rem 1.3rem;
     background: var(--gradient-brand);
     color: #fff;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     font-weight: 500;
     transition: filter 300ms ease;
 
     @include breakpoint(md) {
-      // height: 3.2rem;
+      width: inherit;
       padding: 0.6rem 1.6rem 0.7rem;
+      font-size: 1.4rem;
     }
   }
 
   a.nuxt-link-exact-active {
     color: #a5a5ff;
-  }
-
-  .active {
-    color: red;
   }
 </style>
 
@@ -220,7 +254,7 @@
 
     methods: {
       toggleMenu() {
-        this.$refs.menuSm.classList.toggle("active")
+        this.$refs.menuSm.classList.toggle("menu-open")
       },
     },
   }
