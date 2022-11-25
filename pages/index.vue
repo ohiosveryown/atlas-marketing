@@ -71,7 +71,7 @@
   export default {
     async asyncData({ $content, params }) {
       const features = await $content()
-        .limit(7)
+        .limit(6)
         .where({
           tags: "testing",
         })
