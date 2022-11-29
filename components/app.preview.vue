@@ -1,9 +1,15 @@
 <template>
   <div class="shell">
     <img
+      src="https://res.cloudinary.com/da32ufmnf/image/upload/v1669000957/atlas-refresh/index/tkriaidy6lbcyzj4ypz7.png"
+      alt=""
+      class="sm"
+    />
+
+    <img
       src="https://res.cloudinary.com/da32ufmnf/image/upload/v1668998978/atlas-refresh/index/nvm2vaaayfpg7r3mwkns.png"
       alt=""
-      class="nav"
+      class="lg nav"
     />
 
     <div class="row">
@@ -65,6 +71,20 @@
     }
   }
 
+  .sm {
+    display: flex;
+    @include breakpoint(md) {
+      display: none;
+    }
+  }
+
+  .lg {
+    display: none;
+    @include breakpoint(md) {
+      display: flex;
+    }
+  }
+
   .nav {
     display: none;
 
@@ -75,12 +95,12 @@
   }
 
   .row {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 1.2rem;
+    display: none;
 
     @include breakpoint(md) {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
       padding: 2.4rem;
     }
   }

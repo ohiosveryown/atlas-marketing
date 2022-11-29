@@ -46,10 +46,10 @@
 
       <section class="app-preview width">
         <HeaderMedium
-          class="ente rrr"
+          class="enterrr"
           heading="Customer Centric Productivity"
           subheading="Build relationships with your customers by seeing them in their full context.
-          See how it works below 👇"
+          Check it out below 👇"
         />
 
         <app-preview />
@@ -77,9 +77,10 @@
     header {
       margin-bottom: 2.4rem;
       text-align: center;
+
       @include breakpoint(md) {
         text-align: left;
-        margin-bottom: 4.8rem;
+        margin-bottom: 8rem;
         width: grid-width(5);
       }
     }
@@ -152,6 +153,15 @@
     },
 
     mounted() {
+      //       let uno = document.querySelectorAll(".card")[0]
+      //       let tres = document.querySelectorAll(".card")[3]
+      //
+      //       tres.style.opacity = ".8"
+      //       let unoBottom = uno.getBoundingClientRect().top
+      //       // let tresTop = uno.getBoundingClientRect().top
+      //
+      //       tres.style.marginTop = unoBottom * -1 + "px"
+      //       console.log(unoBottom)
       this.enter(), this.handleScroll()
     },
   }

@@ -133,16 +133,17 @@
 
   menu.small {
     pointer-events: none;
-    border: 0.5px solid rgba(255, 255, 255, 0);
     display: flex;
     position: absolute;
-    top: 44px;
+    top: 34px;
     width: 100%;
     padding: 2rem 1.8rem 1.2rem;
-    border-radius: 12px;
+    border-radius: 0 0 12px 12px;
+    border: 0.5px solid rgba(255, 255, 255, 0);
     background: linear-gradient(180deg, #04020c 0%, #18043d 86%);
     box-shadow: 0px 100px 80px rgba(0, 0, 0, 0.8),
       0px 12px 10px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(22px);
     transform: translateY(-3rem) scaleY(0.75);
     transform-origin: top;
     transition: opacity 200ms ease, transform 10ms ease 201ms;
@@ -154,7 +155,7 @@
   }
 
   .menu-open {
-    pointer-events: inherit;
+    pointer-events: inherit !important;
     transform: translateY(0) scaleY(1) !important;
     opacity: 1 !important;
     transition: opacity 300ms ease, transform 200ms ease !important;

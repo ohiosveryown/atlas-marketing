@@ -26,6 +26,7 @@
 .feature-grid {
   @include breakpoint(md) {
     display: grid;
+    margin-top: -4rem;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 28px;
@@ -38,18 +39,21 @@
 .card:nth-of-type(1) {
   @include breakpoint(md) {
     grid-area: 1 / 1 / 2 / 5;
+    // align-self: end;
   }
 }
 
 .card:nth-of-type(2) {
   @include breakpoint(md) {
     grid-area: 1 / 5 / 2 / 8;
+    // align-self: end;
   }
 }
 
 .card:nth-of-type(3) {
   @include breakpoint(md) {
     grid-area: 1 / 8 / 2 / 13;
+    // align-self: top;
   }
 }
 
@@ -76,12 +80,17 @@
   height: fit-content;
   position: relative;
   border-radius: 20px;
+  margin-bottom: 4rem;
   padding: 2rem;
   background: #14072f;
   background: url("https://res.cloudinary.com/da32ufmnf/image/upload/v1668997224/atlas-refresh/index/ausczy3mh1ouhwztp4wd.png")
     no-repeat center center;
   background-size: cover;
   overflow: hidden;
+
+  @include breakpoint(md) {
+    margin-bottom: 0;
+  }
 
   i {
     display: block;
