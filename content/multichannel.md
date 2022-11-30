@@ -1,6 +1,6 @@
 ---
 title: Multichannel
-tags: "testing"
+tags: "feature"
 icon: "📣"
 hero: "https://res.cloudinary.com/da32ufmnf/image/upload/v1669216462/atlas-refresh/index/dnyq7minvldqfohodtzg.png"
 description: "Convert your customer conversations into data driven insights, driving your product and engineering roadmaps."

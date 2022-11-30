@@ -108,7 +108,7 @@
       const features = await $content()
         .limit(6)
         .where({
-          tags: "testing",
+          tags: "feature",
         })
         .fetch()
 
